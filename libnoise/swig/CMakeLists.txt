@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 set( GEN_LAN java )
-set( EXTRA_LIBS noise )
+set( EXTRA_LIBS noise noiseutils )
 
 find_package(SWIG REQUIRED)
 include(${SWIG_USE_FILE})
@@ -30,52 +30,52 @@ endif()
 set( CMAKE_SWIG_FLAGS "" )
 
 include_directories( ${CMAKE_INSTALL_PREFIX}/include )
-link_directories( ${CMAKE_INSTALL_PREFIX}/lib )
+# link_directories( ${CMAKE_INSTALL_PREFIX}/lib )
 
 # noise base
 set_property( SOURCE noise.i PROPERTY CPLUSPLUS ON )
 set_property( SOURCE noise.i PROPERTY CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR} )
-swig_add_library(noise-wrapper 
-                TYPE STATIC 
+swig_add_library(NoiseBase 
+                TYPE SHARED 
                 LANGUAGE ${GEN_LAN} 
                 SOURCES noise.i)
-swig_link_libraries( noise-wrapper ${EXTRA_LIBS} )
+swig_link_libraries( NoiseBase ${EXTRA_LIBS} )
 
 # noise model
 set_property( SOURCE model.i PROPERTY CPLUSPLUS ON )
 set_property( SOURCE model.i PROPERTY CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/model )
-swig_add_library(model-wrapper 
-                TYPE STATIC 
+swig_add_library(NoiseModel 
+                TYPE SHARED 
                 LANGUAGE ${GEN_LAN} 
                 SOURCES model.i)
-swig_link_libraries( model-wrapper ${EXTRA_LIBS} )
+swig_link_libraries( NoiseModel ${EXTRA_LIBS} )
 
 # noise module
 set_property( SOURCE module.i PROPERTY CPLUSPLUS ON )
 set_property( SOURCE module.i PROPERTY CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/module )
-swig_add_library(module-wrapper 
-                TYPE STATIC 
+swig_add_library(NoiseModule 
+                TYPE SHARED 
                 LANGUAGE ${GEN_LAN} 
                 SOURCES module.i)
-swig_link_libraries( module-wrapper ${EXTRA_LIBS} )
+swig_link_libraries( NoiseModule ${EXTRA_LIBS} )
 
 
 install(TARGETS 
-        noise-wrapper
+        NoiseBase
         DESTINATION 
         ${CMAKE_INSTALL_PREFIX}/lib)
 install(TARGETS 
-        model-wrapper
+        NoiseModel
         DESTINATION 
         ${CMAKE_INSTALL_PREFIX}/lib)
 install(TARGETS 
-        module-wrapper
+        NoiseModule
         DESTINATION 
         ${CMAKE_INSTALL_PREFIX}/lib)
 
-# install(DIRECTORY 
-#         ${CMAKE_CURRENT_BINARY_DIR}
-#         DESTINATION 
-#         ${TARGET_SWIG_OUTPUT_DIR}
-#         FILES_MATCHING PATTERN "*.java")
+
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/ 
+        DESTINATION ${TARGET_SWIG_OUTDIR}
+        FILES_MATCHING PATTERN "*.java"
+        PATTERN "CMakeFiles" EXCLUDE)
 

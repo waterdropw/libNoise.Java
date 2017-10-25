@@ -8,7 +8,7 @@ aux_source_directory( ${PROJECT_SOURCE_DIR}/model MODEL_SRC_FILES )
 aux_source_directory( ${PROJECT_SOURCE_DIR}/module MODULE_SRC_FILES )
 
 
-add_library( noise
+add_library( noise STATIC
             ${NOISE_SRC_FILES} 
             ${MODEL_SRC_FILES} 
             ${MODULE_SRC_FILES} )

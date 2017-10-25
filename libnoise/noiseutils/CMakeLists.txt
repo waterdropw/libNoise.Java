@@ -7,7 +7,7 @@ include_directories( ${CMAKE_INSTALL_PREFIX}/include/ )
 
 set( SOURCE_FILES noiseutils.cpp )
 
-add_library( noiseutils ${SOURCE_FILES} )
+add_library( noiseutils STATIC ${SOURCE_FILES} )
 
 
 install(TARGETS 

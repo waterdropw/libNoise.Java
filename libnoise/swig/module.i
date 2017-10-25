@@ -1,15 +1,10 @@
 %module NoiseModule
 
 
-%{
-    #include <stdlib.h>
-    #include <assert.h>
-    #include <math.h>
+%include "enums.swg"
+%javaconst(1);
 
-    #include "noise/basictypes.h"
-    #include "noise/exception.h"
-    #include "noise/noisegen.h"
-    
+%{  
     #include "noise/module/modulebase.h"
     #include "noise/module/add.h"
     #include "noise/module/abs.h"
@@ -41,9 +36,7 @@
     #include "noise/module/voronoi.h"
 %}
 
-
 %include "noise/module/modulebase.h"
-
 %include "noise/module/add.h"
 %include "noise/module/abs.h"
 %include "noise/module/billow.h"
