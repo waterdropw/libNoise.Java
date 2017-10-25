@@ -29,7 +29,7 @@ endif()
 
 set( CMAKE_SWIG_FLAGS "" )
 
-include_directories( ${CMAKE_INSTALL_PREFIX}/include )
+include_directories( ${LIBNOISE_ROOT_DIR}/include )
 # link_directories( ${CMAKE_INSTALL_PREFIX}/lib )
 
 # noise base

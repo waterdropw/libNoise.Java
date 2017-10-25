@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 project( noiseutils VERSION 1.0.0 )
 
 
-include_directories( ${CMAKE_INSTALL_PREFIX}/include/ )
+include_directories( ${LIBNOISE_ROOT_DIR}/include/ )
 
 set( SOURCE_FILES noiseutils.cpp )
 
