@@ -6,20 +6,20 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package net.xbwee.noise;
+package net.xbwee.noise.module;
 
-public class SWIGTYPE_p_double {
+public class SWIGTYPE_p_noise__NoiseQuality {
   private transient long swigCPtr;
 
-  protected SWIGTYPE_p_double(long cPtr, @SuppressWarnings("unused") boolean futureUse) {
+  protected SWIGTYPE_p_noise__NoiseQuality(long cPtr, @SuppressWarnings("unused") boolean futureUse) {
     swigCPtr = cPtr;
   }
 
-  protected SWIGTYPE_p_double() {
+  protected SWIGTYPE_p_noise__NoiseQuality() {
     swigCPtr = 0;
   }
 
-  protected static long getCPtr(SWIGTYPE_p_double obj) {
+  protected static long getCPtr(SWIGTYPE_p_noise__NoiseQuality obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 }

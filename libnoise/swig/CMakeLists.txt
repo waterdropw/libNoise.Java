@@ -28,13 +28,16 @@ else()
 endif()
 
 set( CMAKE_SWIG_FLAGS "" )
+set( SWIG_OUTFILE_DIR ${CMAKE_CURRENT_BINARY_DIR} )
 
 include_directories( ${LIBNOISE_ROOT_DIR}/include )
 # link_directories( ${CMAKE_INSTALL_PREFIX}/lib )
 
 # noise base
+set( CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR} )
 set_property( SOURCE noise.i PROPERTY CPLUSPLUS ON )
-set_property( SOURCE noise.i PROPERTY CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR} )
+set_property( SOURCE noise.i PROPERTY 
+                SWIG_FLAGS -package "net.xbwee.noise" )
 swig_add_library(NoiseBase 
                 TYPE SHARED 
                 LANGUAGE ${GEN_LAN} 
@@ -42,8 +45,10 @@ swig_add_library(NoiseBase
 swig_link_libraries( NoiseBase ${EXTRA_LIBS} )
 
 # noise model
+set( CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/model )
 set_property( SOURCE model.i PROPERTY CPLUSPLUS ON )
-set_property( SOURCE model.i PROPERTY CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/model )
+set_property( SOURCE model.i PROPERTY 
+                SWIG_FLAGS -package "net.xbwee.noise.model" )
 swig_add_library(NoiseModel 
                 TYPE SHARED 
                 LANGUAGE ${GEN_LAN} 
@@ -51,8 +56,10 @@ swig_add_library(NoiseModel
 swig_link_libraries( NoiseModel ${EXTRA_LIBS} )
 
 # noise module
+set( CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/module )
 set_property( SOURCE module.i PROPERTY CPLUSPLUS ON )
-set_property( SOURCE module.i PROPERTY CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/module )
+set_property( SOURCE module.i PROPERTY 
+                SWIG_FLAGS -package "net.xbwee.noise.module" )
 swig_add_library(NoiseModule 
                 TYPE SHARED 
                 LANGUAGE ${GEN_LAN} 
@@ -73,9 +80,4 @@ install(TARGETS
         DESTINATION 
         ${CMAKE_INSTALL_PREFIX}/lib)
 
-
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/ 
-        DESTINATION ${TARGET_SWIG_OUTDIR}
-        FILES_MATCHING PATTERN "*.java"
-        PATTERN "CMakeFiles" EXCLUDE)
 

@@ -6,6 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+package net.xbwee.noise;
 
 public enum NoiseQuality {
   QUALITY_FAST(0),

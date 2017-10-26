@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package net.xbwee.noise;
+package net.xbwee.noise.module;
 
 public class SWIGTYPE_p_double {
   private transient long swigCPtr;

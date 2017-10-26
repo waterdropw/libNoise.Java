@@ -6,6 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+package net.xbwee.noise;
 
 public class NoiseJNI {
   public final static native void LatLonToXYZ(double jarg1, double jarg2, long jarg3, long jarg4, long jarg5);

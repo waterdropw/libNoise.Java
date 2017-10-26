@@ -6,6 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+package net.xbwee.noise;
 
 public class Noise {
   public static void LatLonToXYZ(double lat, double lon, SWIGTYPE_p_double x, SWIGTYPE_p_double y, SWIGTYPE_p_double z) {
