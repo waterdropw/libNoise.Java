@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 set( GEN_LAN java )
 set( EXTRA_LIBS noise noiseutils )
 
+
 find_package(SWIG REQUIRED)
 include(${SWIG_USE_FILE})
 
@@ -70,14 +71,14 @@ swig_link_libraries( NoiseModule ${EXTRA_LIBS} )
 install(TARGETS 
         NoiseBase
         DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
+        ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_SYSTEM_NAME})
 install(TARGETS 
         NoiseModel
         DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
+        ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_SYSTEM_NAME})
 install(TARGETS 
         NoiseModule
         DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
+        ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_SYSTEM_NAME})
 
 
