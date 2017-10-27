@@ -29,7 +29,6 @@
 
 #include <noise/noise.h>
 
-using namespace noise;
 
 namespace noise
 {

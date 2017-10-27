@@ -10,13 +10,13 @@ set( SOURCE_FILES noiseutils.cpp )
 add_library( noiseutils STATIC ${SOURCE_FILES} )
 
 
-install(TARGETS 
-        noiseutils
-        DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
-install(FILES 
-        ${PROJECT_SOURCE_DIR}/noiseutils.h 
-        DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/include/noiseutils)
+# install(TARGETS 
+#         noiseutils
+#         DESTINATION 
+#         ${CMAKE_INSTALL_PREFIX}/lib)
+# install(FILES 
+#         ${PROJECT_SOURCE_DIR}/noiseutils.h 
+#         DESTINATION 
+#         ${CMAKE_INSTALL_PREFIX}/include/noiseutils)
 
 

@@ -14,22 +14,22 @@ add_library( noise STATIC
             ${MODULE_SRC_FILES} )
 
 
-install(TARGETS 
-        noise
-        DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
-install(DIRECTORY 
-        ${PROJECT_SOURCE_DIR}
-        DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/include
-        FILES_MATCHING PATTERN "*.h")
-install(DIRECTORY 
-        ${PROJECT_SOURCE_DIR}/model
-        DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/include/noise
-        FILES_MATCHING PATTERN "*.h")
-install(DIRECTORY 
-        ${PROJECT_SOURCE_DIR}/module
-        DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/include/noise
-        FILES_MATCHING PATTERN "*.h")
+# install(TARGETS 
+#         noise
+#         DESTINATION 
+#         ${CMAKE_INSTALL_PREFIX}/lib)
+# install(DIRECTORY 
+#         ${PROJECT_SOURCE_DIR}
+#         DESTINATION 
+#         ${CMAKE_INSTALL_PREFIX}/include
+#         FILES_MATCHING PATTERN "*.h")
+# install(DIRECTORY 
+#         ${PROJECT_SOURCE_DIR}/model
+#         DESTINATION 
+#         ${CMAKE_INSTALL_PREFIX}/include/noise
+#         FILES_MATCHING PATTERN "*.h")
+# install(DIRECTORY 
+#         ${PROJECT_SOURCE_DIR}/module
+#         DESTINATION 
+#         ${CMAKE_INSTALL_PREFIX}/include/noise
+#         FILES_MATCHING PATTERN "*.h")
