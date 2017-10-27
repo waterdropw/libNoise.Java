@@ -3,7 +3,6 @@
 .DS_Store
 /.idea
 /.vscode
-build
-lib
-src
-libs
+/build
+/lib
+/src
