@@ -4,4 +4,6 @@
 /.idea
 /.vscode
 build
-/**/build
+lib
+src
+libs
