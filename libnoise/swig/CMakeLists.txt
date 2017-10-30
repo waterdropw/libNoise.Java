@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 
-set( EXTRA_LIBS noise noiseutils )
+set( EXTRA_LIBS noiseutils noise )
 set( TARGET_PACKAGE_PATH "net/xbwee/libnoise")
 
 find_package(SWIG REQUIRED)
@@ -20,7 +20,7 @@ set( SWIG_OUTFILE_DIR ${CMAKE_CURRENT_BINARY_DIR} )
 set( TARGET_SWIG_OUTDIR ${TARGET_PACKAGE_PATH} )
 
 include_directories( ${LIBNOISE_ROOT_DIR}/include )
-# link_directories( ${CMAKE_INSTALL_PREFIX}/lib )
+link_directories( ${CMAKE_INSTALL_PREFIX}/lib )
 
 # noise base
 set( CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/noise )
@@ -57,15 +57,15 @@ swig_link_libraries( NoiseModule ${EXTRA_LIBS} )
 
 
 # noise utils
-# set( CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/utils )
-# set_property( SOURCE noiseutils.i PROPERTY CPLUSPLUS ON )
-# set_property( SOURCE noiseutils.i PROPERTY 
-#                 SWIG_FLAGS -package "net.xbwee.libnoise.utils" )
-# swig_add_library(NoiseUtils 
-#                 TYPE SHARED 
-#                 LANGUAGE java 
-#                 SOURCES noiseutils.i)
-# swig_link_libraries( NoiseUtils ${EXTRA_LIBS} )
+set( CMAKE_SWIG_OUTDIR ${TARGET_SWIG_OUTDIR}/utils )
+set_property( SOURCE noiseutils.i PROPERTY CPLUSPLUS ON )
+set_property( SOURCE noiseutils.i PROPERTY 
+                SWIG_FLAGS -package "net.xbwee.libnoise.utils" )
+swig_add_library(NoiseUtils 
+                TYPE SHARED 
+                LANGUAGE java 
+                SOURCES noiseutils.i)
+swig_link_libraries( NoiseUtils ${EXTRA_LIBS} )
 
 
 
@@ -97,12 +97,12 @@ install(TARGETS
         NoiseModule
         DESTINATION 
         ${CMAKE_INSTALL_PREFIX}/lib)
-# install(TARGETS 
-#         NoiseUtils
-#         DESTINATION 
-#         ${CMAKE_INSTALL_PREFIX}/lib)
+install(TARGETS 
+        NoiseUtils
+        DESTINATION 
+        ${CMAKE_INSTALL_PREFIX}/lib)
 
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_PACKAGE_PATH}/ 
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/src/${TARGET_PACKAGE_PATH})
+# install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_PACKAGE_PATH}/ 
+#         DESTINATION ${CMAKE_INSTALL_PREFIX}/src/${TARGET_PACKAGE_PATH})
 
 # install_jar( libnoise ${CMAKE_INSTALL_PREFIX}/lib )

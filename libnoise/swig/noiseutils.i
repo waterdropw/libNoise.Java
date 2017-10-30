@@ -5,7 +5,6 @@
 %javaconst(1);
 
 %{
-    #include "noise/basictypes.h"
     #include "noiseutils/noiseutils.h"
 %}
 
