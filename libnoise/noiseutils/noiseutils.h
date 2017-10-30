@@ -27,10 +27,9 @@
 #include <string.h>
 #include <string>
 
-#include "noise/noise.h"
-#include "noise/basictypes.h"
-#include "noise/exception.h"
+#include <noise/noise.h>
 
+using namespace noise;
 
 namespace noise
 {
@@ -1423,7 +1422,7 @@ namespace noise
         ///
         /// The source module must exist throughout the lifetime of this
         /// object unless another noise module replaces that noise module.
-        void SetSourceModule (const noise::module::Module& sourceModule)
+        void SetSourceModule (const module::Module& sourceModule)
         {
           m_pSourceModule = &sourceModule;
         }
@@ -1464,7 +1463,7 @@ namespace noise
         NoiseMap* m_pDestNoiseMap;
 
         /// Source noise module that will generate the coherent-noise values.
-        const noise::module::Module* m_pSourceModule;
+        const module::Module* m_pSourceModule;
 
     };
 

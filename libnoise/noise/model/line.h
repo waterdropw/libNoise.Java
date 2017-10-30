@@ -62,7 +62,7 @@ namespace noise
         ///
         /// @param module The noise module that is used to generate the output
         /// values.
-        Line (const noise::module::Module& module);
+        Line (const module::Module& module);
 
         /// Returns a flag indicating whether the output value is to be
         /// attenuated (moved toward 0.0) as the ends of the line segment are
@@ -82,7 +82,7 @@ namespace noise
         /// @returns A reference to the noise module.
         ///
         /// @pre A noise module was passed to the SetModule() method.
-        const noise::module::Module& GetModule () const
+        const module::Module& GetModule () const
         {
           assert (m_pModule != NULL);
           return *m_pModule;
@@ -140,7 +140,7 @@ namespace noise
         ///
         /// This noise module must exist for the lifetime of this object,
         /// until you pass a new noise module to this method.
-        void SetModule (const noise::module::Module& module)
+        void SetModule (const module::Module& module)
         {
           m_pModule = &module;
         }
@@ -165,7 +165,7 @@ namespace noise
         bool m_attenuate;
 
         /// A pointer to the noise module used to generate the output values.
-        const noise::module::Module* m_pModule;
+        const module::Module* m_pModule;
 
         /// @a x coordinate of the start of the line segment.
         double m_x0;
