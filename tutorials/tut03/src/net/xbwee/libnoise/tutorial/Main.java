@@ -38,14 +38,14 @@ public class Main {
 
         // color image
         renderer.ClearGradient ();
-        renderer.AddGradientPoint (-1.0000, new Color (  0,   0, 128, 255)); // deeps
-        renderer.AddGradientPoint (-0.2500, new Color (  0,   0, 255, 255)); // shallow
-        renderer.AddGradientPoint ( 0.0000, new Color (  0, 128, 255, 255)); // shore
-        renderer.AddGradientPoint ( 0.0625, new Color (240, 240,  64, 255)); // sand
-        renderer.AddGradientPoint ( 0.1250, new Color ( 32, 160,   0, 255)); // grass
-        renderer.AddGradientPoint ( 0.3750, new Color (224, 224,   0, 255)); // dirt
-        renderer.AddGradientPoint ( 0.7500, new Color (128, 128, 128, 255)); // rock
-        renderer.AddGradientPoint ( 1.0000, new Color (255, 255, 255, 255)); // snow
+        renderer.AddGradientPoint (-1.0000, new Color (  (short)0,   (short)0, (short)128, (short)255)); // deeps
+        renderer.AddGradientPoint (-0.2500, new Color (  (short)0,   (short)0, (short)255, (short)255)); // shallow
+        renderer.AddGradientPoint ( 0.0000, new Color (  (short)0, (short)128, (short)255, (short)255)); // shore
+        renderer.AddGradientPoint ( 0.0625, new Color ((short)240, (short)240,  (short)64, (short)255)); // sand
+        renderer.AddGradientPoint ( 0.1250, new Color ( (short)32, (short)160,   (short)0, (short)255)); // grass
+        renderer.AddGradientPoint ( 0.3750, new Color ((short)224, (short)224,   (short)0, (short)255)); // dirt
+        renderer.AddGradientPoint ( 0.7500, new Color ((short)128, (short)128, (short)128, (short)255)); // rock
+        renderer.AddGradientPoint ( 1.0000, new Color ((short)255, (short)255, (short)255, (short)255)); // snow
 
         renderer.Render ();
         writer.SetDestFilename("tutorial03-colorful.bmp");

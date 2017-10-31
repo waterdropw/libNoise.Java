@@ -1,6 +1,18 @@
 %module NoiseModule
 
 
+%import "noise.i"
+
+%pragma(java) jniclassimports=%{
+import net.xbwee.libnoise.noise.NoiseQuality;
+%}
+%typemap(javaimports) SWIGTYPE %{
+import net.xbwee.libnoise.noise.NoiseQuality;
+%}
+
+SWIG_JAVABODY_PROXY(public, public, SWIGTYPE)
+SWIG_JAVABODY_TYPEWRAPPER(public, public, public, SWIGTYPE)
+
 %include "enums.swg"
 %javaconst(1);
 
