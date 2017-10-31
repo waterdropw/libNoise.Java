@@ -1,6 +1,6 @@
 /.idea
 /.vscode
-out
-*.iml
-*.bmp
-*.ter
+/out
+/*.iml
+/*.bmp
+/*.ter
