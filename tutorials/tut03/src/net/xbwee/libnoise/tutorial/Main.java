@@ -33,7 +33,7 @@ public class Main {
 
         // white/black image
         writer.SetSourceImage(image);
-        writer.SetDestFilename("tutorial03-blackwhite.bmp");
+        writer.SetDestFilename("tut03-blackwhite.bmp");
         writer.WriteDestFile();
 
         // color image
@@ -48,14 +48,14 @@ public class Main {
         renderer.AddGradientPoint ( 1.0000, new Color ((short)255, (short)255, (short)255, (short)255)); // snow
 
         renderer.Render ();
-        writer.SetDestFilename("tutorial03-colorful.bmp");
+        writer.SetDestFilename("tut03-colorful.bmp");
         writer.WriteDestFile();
 
         // light contrast
         renderer.EnableLight ();
         renderer.SetLightContrast (3.0); // Triple the contrast
         renderer.Render ();
-        writer.SetDestFilename("tutorial03-contrast.bmp");
+        writer.SetDestFilename("tut03-contrast.bmp");
         writer.WriteDestFile();
 
         // light brightness
@@ -63,14 +63,14 @@ public class Main {
         renderer.SetLightContrast (3.0); // Triple the contrast
         renderer.SetLightBrightness (2.0); // Double the brightness
         renderer.Render ();
-        writer.SetDestFilename("tutorial03-brightness.bmp");
+        writer.SetDestFilename("tut03-brightness.bmp");
         writer.WriteDestFile();
 
         // two height-map 'tiles' can then be seamlessly joined together.
         heightMapBuilder.SetBounds (6.0, 10.0, 1.0, 5.0);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial03-tiling.bmp");
+        writer.SetDestFilename("tut03-tiling.bmp");
         writer.WriteDestFile();
     }
 }

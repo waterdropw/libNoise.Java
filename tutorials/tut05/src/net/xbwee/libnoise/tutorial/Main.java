@@ -47,7 +47,7 @@ public class Main {
         heightMapBuilder.SetSourceModule (mountainTerrain);
         heightMapBuilder.Build ();
         renderer.Render ();
-        writer.SetDestFilename("tutorial05-mountain.bmp");
+        writer.SetDestFilename("tut05-mountain.bmp");
         writer.WriteDestFile();
 
         // base flat terrain map
@@ -55,7 +55,7 @@ public class Main {
         heightMapBuilder.SetSourceModule (baseFlatTerrain);
         heightMapBuilder.Build ();
         renderer.Render ();
-        writer.SetDestFilename("tutorial05-baseflat.bmp");
+        writer.SetDestFilename("tut05-baseflat.bmp");
         writer.WriteDestFile();
 
         // flatten the base terrain map
@@ -65,7 +65,7 @@ public class Main {
         heightMapBuilder.SetSourceModule (flatTerrain);
         heightMapBuilder.Build ();
         renderer.Render ();
-        writer.SetDestFilename("tutorial05-flatten.bmp");
+        writer.SetDestFilename("tut05-flatten.bmp");
         writer.WriteDestFile();
 
 
@@ -75,7 +75,7 @@ public class Main {
         heightMapBuilder.SetSourceModule (terrainType);
         heightMapBuilder.Build ();
         renderer.Render ();
-        writer.SetDestFilename("tutorial05-terraintype.bmp");
+        writer.SetDestFilename("tut05-terraintype.bmp");
         writer.WriteDestFile();
 
         // final map
@@ -86,14 +86,14 @@ public class Main {
         heightMapBuilder.SetSourceModule (finalTerrain);
         heightMapBuilder.Build ();
         renderer.Render ();
-        writer.SetDestFilename("tutorial05-final.bmp");
+        writer.SetDestFilename("tut05-final.bmp");
         writer.WriteDestFile();
 
         // more smooth the edge
         finalTerrain.SetEdgeFalloff (0.125);
         heightMapBuilder.Build ();
         renderer.Render ();
-        writer.SetDestFilename("tutorial05-finalsmooth.bmp");
+        writer.SetDestFilename("tut05-finalsmooth.bmp");
         writer.WriteDestFile();
     }
 }

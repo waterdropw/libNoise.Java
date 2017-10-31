@@ -49,25 +49,25 @@ public class Main {
         perlin.SetOctaveCount (1);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-octave1.bmp");
+        writer.SetDestFilename("tut04-octave1.bmp");
         writer.WriteDestFile();
 
         perlin.SetOctaveCount (2);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-octave2.bmp");
+        writer.SetDestFilename("tut04-octave2.bmp");
         writer.WriteDestFile();
 
         perlin.SetOctaveCount (3);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-octave3.bmp");
+        writer.SetDestFilename("tut04-octave3.bmp");
         writer.WriteDestFile();
 
         perlin.SetOctaveCount (4);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-octave4.bmp");
+        writer.SetDestFilename("tut04-octave4.bmp");
         writer.WriteDestFile();
 
 
@@ -79,25 +79,25 @@ public class Main {
         perlin.SetFrequency(1.0);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-freq1.bmp");
+        writer.SetDestFilename("tut04-freq1.bmp");
         writer.WriteDestFile();
 
         perlin.SetFrequency(2.0);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-freq2.bmp");
+        writer.SetDestFilename("tut04-freq2.bmp");
         writer.WriteDestFile();
 
         perlin.SetFrequency(4.0);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-freq4.bmp");
+        writer.SetDestFilename("tut04-freq4.bmp");
         writer.WriteDestFile();
 
         perlin.SetFrequency(8.0);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-freq8.bmp");
+        writer.SetDestFilename("tut04-freq8.bmp");
         writer.WriteDestFile();
 
         // height map generated with different persistence: 1/4,1/2,3/4
@@ -108,19 +108,19 @@ public class Main {
         perlin.SetPersistence(0.25);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-pers0.25.bmp");
+        writer.SetDestFilename("tut04-pers0.25.bmp");
         writer.WriteDestFile();
 
         perlin.SetPersistence(0.5);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-pers0.50.bmp");
+        writer.SetDestFilename("tut04-pers0.50.bmp");
         writer.WriteDestFile();
 
         perlin.SetPersistence(0.75);
         heightMapBuilder.Build();
         renderer.Render ();
-        writer.SetDestFilename("tutorial04-pers0.75.bmp");
+        writer.SetDestFilename("tut04-pers0.75.bmp");
         writer.WriteDestFile();
     }
 }
