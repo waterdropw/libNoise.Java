@@ -88,19 +88,19 @@ file(GLOB LIBNOISE_LIB_FILES
 install(TARGETS 
         NoiseBase
         DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
+        ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_SYSTEM_NAME})
 install(TARGETS 
         NoiseModel
         DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
+        ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_SYSTEM_NAME})
 install(TARGETS 
         NoiseModule
         DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
+        ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_SYSTEM_NAME})
 install(TARGETS 
         NoiseUtils
         DESTINATION 
-        ${CMAKE_INSTALL_PREFIX}/lib)
+        ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_SYSTEM_NAME})
 
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_PACKAGE_PATH}/ 
         DESTINATION ${CMAKE_INSTALL_PREFIX}/src/${TARGET_PACKAGE_PATH})
