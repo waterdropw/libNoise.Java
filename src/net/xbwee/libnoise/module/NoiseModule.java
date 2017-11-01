@@ -8,6 +8,8 @@
 
 package net.xbwee.libnoise.module;
 
+import net.xbwee.libnoise.noise.NoiseQuality;
+
 public class NoiseModule {
   public static double getDEFAULT_BILLOW_FREQUENCY() {
     return NoiseModuleJNI.DEFAULT_BILLOW_FREQUENCY_get();
