@@ -150,7 +150,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("base elevation");
         // 1: [Continent module]: This Perlin-noise module generates the continents.
         //    This noise module has a high number of octaves so that detail is
         //    visible at high zoom levels.
@@ -238,7 +238,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("lumpier terrain");
         // 1: [Coarse-turbulence module]: This turbulence module warps the output
         //    value from the base-continent-definition subgroup, adding some coarse
         //    detail to it.
@@ -314,7 +314,7 @@ public class Main {
         // -1.0 represents the smoothest terrain types (plains and underwater) and
         // +1.0 represents the roughest terrain types (mountains).
         //
-
+        System.out.println("terrain types");
         // 1: [Warped-continent module]: This turbulence module slightly warps the
         //    output value from the continent-definition group.  This prevents the
         //    rougher terrain from appearing exclusively at higher elevations.
@@ -359,7 +359,7 @@ public class Main {
         // -1.0 represents low mountainous terrain and +1.0 represents high
         // mountainous terrain.
         //
-
+        System.out.println("mountainous terrain");
         // 1: [Mountain-ridge module]: This ridged-multifractal-noise module
         //    generates the mountain ridges.
         RidgedMulti mountainBaseDef_rm0 = new RidgedMulti();
@@ -456,7 +456,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("high mountainous terrain");
         // 1: [Mountain-basis-0 module]: This ridged-multifractal-noise module,
         //    along with the mountain-basis-1 module, generates the individual
         //    mountains.
@@ -510,7 +510,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("low mountainous terrain");
         // 1: [Lowland-basis-0 module]: This ridged-multifractal-noise module,
         //    along with the lowland-basis-1 module, produces the low mountainous
         //    terrain.
@@ -560,7 +560,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("final mountainous terrain");
         // 1: [Scaled-low-mountainous-terrain module]: First, this scale/bias module
         //    scales the output value from the low-mountainous-terrain subgroup to a
         //    very low value and biases it towards -1.0.  This results in the low
@@ -631,7 +631,6 @@ public class Main {
         Cache mountainousTerrain = new Cache();
         mountainousTerrain.SetSourceModule (0, mountainousTerrain_ex);
 
-
         ////////////////////////////////////////////////////////////////////////////
         // Module group: hilly terrain
         ////////////////////////////////////////////////////////////////////////////
@@ -644,7 +643,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("hilly terrain");
         // 1: [Hills module]: This billow-noise module generates the hills.
         Billow hillyTerrain_bi = new Billow();
         hillyTerrain_bi.SetSeed (CUR_SEED + 60);
@@ -747,7 +746,6 @@ public class Main {
         Cache hillyTerrain = new Cache();
         hillyTerrain.SetSourceModule (0, hillyTerrain_tu1);
 
-
         ////////////////////////////////////////////////////////////////////////////
         // Module group: plains terrain
         ////////////////////////////////////////////////////////////////////////////
@@ -764,7 +762,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("plains terrain");
         // 1: [Plains-basis-0 module]: This billow-noise module, along with the
         //    plains-basis-1 module, produces the plains.
         Billow plainsTerrain_bi0 = new Billow();
@@ -823,7 +821,6 @@ public class Main {
         Cache plainsTerrain = new Cache();
         plainsTerrain.SetSourceModule (0, plainsTerrain_sb2);
 
-
         ////////////////////////////////////////////////////////////////////////////
         // Module group: badlands terrain
         ////////////////////////////////////////////////////////////////////////////
@@ -836,7 +833,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("badlands sand");
         // 1: [Sand-dunes module]: This ridged-multifractal-noise module generates
         //    sand dunes.  This ridged-multifractal noise is generated with a single
         //    octave, which makes very smooth dunes.
@@ -885,7 +882,6 @@ public class Main {
         Cache badlandsSand = new Cache();
         badlandsSand.SetSourceModule (0, badlandsSand_ad);
 
-
         ////////////////////////////////////////////////////////////////////////////
         // Module subgroup: badlands cliffs (7 noise modules)
         //
@@ -894,7 +890,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("badlands cliffs");
         // 1: [Cliff-basis module]: This Perlin-noise module generates some coherent
         //    noise that will be used to generate the cliffs.
         Perlin badlandsCliffs_pe = new Perlin();
@@ -965,7 +961,6 @@ public class Main {
         Cache badlandsCliffs = new Cache();
         badlandsCliffs.SetSourceModule (0, badlandsCliffs_tu1);
 
-
         ////////////////////////////////////////////////////////////////////////////
         // Module subgroup: badlands terrain (3 noise modules)
         //
@@ -980,7 +975,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("final badlands");
         // 1: [Scaled-sand-dunes module]: This scale/bias module considerably
         //    flattens the output value from the badlands-sands subgroup and lowers
         //    this value to near -1.0.
@@ -1003,7 +998,6 @@ public class Main {
         Cache badlandsTerrain = new Cache();
         badlandsTerrain.SetSourceModule (0, badlandsTerrain_ma);
 
-
         ////////////////////////////////////////////////////////////////////////////
         // Module group: river positions
         ////////////////////////////////////////////////////////////////////////////
@@ -1016,7 +1010,7 @@ public class Main {
         // -1.0 represents the lowest elevations and +1.0 represents the highest
         // elevations.
         //
-
+        System.out.println("river positions");
         // 1: [Large-river-basis module]: This ridged-multifractal-noise module
         //    creates the large, deep rivers.
         RidgedMulti riverPositions_rm0 = new RidgedMulti();
@@ -1087,7 +1081,6 @@ public class Main {
         Cache riverPositions = new Cache();
         riverPositions.SetSourceModule (0, riverPositions_tu);
 
-
         ////////////////////////////////////////////////////////////////////////////
         // Module group: scaled mountainous terrain
         ////////////////////////////////////////////////////////////////////////////
@@ -1108,7 +1101,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("scaled mountainous terrain");
         // 1: [Base-scaled-mountainous-terrain module]: This scale/bias module
         //    scales the output value from the mountainous-terrain group so that the
         //    output value is measured in planetary elevation units.
@@ -1186,7 +1179,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("scaled hilly terrain");
         // 1: [Base-scaled-hilly-terrain module]: This scale/bias module scales the
         //    output value from the hilly-terrain group so that this output value is
         //    measured in planetary elevation units
@@ -1261,7 +1254,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("scaled plains terrain");
         // 1: [Scaled-plains-terrain module]: This scale/bias module greatly
         //    flattens the output value from the plains terrain.  This output value
         //    is measured in planetary elevation units
@@ -1297,7 +1290,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("scaled badlands terrain");
         // 1: [Scaled-badlands-terrain module]: This scale/bias module scales the
         //    output value from the badlands-terrain group so that it is measured
         //    in planetary elevation units
@@ -1326,7 +1319,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("continental shelf");
         // 1: [Shelf-creator module]: This terracing module applies a terracing
         //    curve to the continent-definition group at the specified shelf level.
         //    This terrace becomes the continental shelf.  Note that this terracing
@@ -1390,7 +1383,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("base continent elevations");
         // 1: [Base-scaled-continent-elevations module]: This scale/bias module
         //    scales the output value from the continent-definition group so that it
         //    is measured in planetary elevation units
@@ -1429,7 +1422,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("continents with plains");
         // 1: [Continents-with-plains module]:  This addition module adds the
         //    scaled-plains-terrain group to the base-continent-elevation subgroup.
         Add continentsWithPlains_ad = new Add();
@@ -1452,7 +1445,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("continents with hills");
         // 1: [Continents-with-hills module]:  This addition module adds the scaled-
         //    hilly-terrain group to the base-continent-elevation subgroup.
         Add continentsWithHills_ad = new Add();
@@ -1488,7 +1481,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("continents with mountains");
         // 1: [Continents-and-mountains module]:  This addition module adds the
         //    scaled-mountainous-terrain group to the base-continent-elevation
         //    subgroup.
@@ -1548,7 +1541,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("continents with badlands");
         // 1: [Badlands-positions module]: This Perlin-noise module generates some
         //    random noise, which is used by subsequent noise modules to specify the
         //    locations of the badlands.
@@ -1612,7 +1605,7 @@ public class Main {
         // elevation units (-1.0 for the lowest underwater trenches and +1.0 for the
         // highest mountain peaks.)
         //
-
+        System.out.println("continents with rivers");
         // 1: [Scaled-rivers module]: This scale/bias module scales the output value
         //    from the river-positions group so that it is measured in planetary
         //    elevation units and is negative; this is required for step 2.
@@ -1656,7 +1649,7 @@ public class Main {
         // This subgroup simply caches the output value from the continent-with-
         // rivers subgroup to contribute to the final output value.
         //
-
+        System.out.println("unscaled final planet");
         // 1: [Unscaled-final-planet subgroup]: Caches the output value from the
         //    continent-with-rivers subgroup.
         Cache unscaledFinalPlanet = new Cache();
@@ -1669,7 +1662,7 @@ public class Main {
         // This subgroup scales the output value from the unscaled-final-planet
         // subgroup so that it represents an elevation in meters.
         //
-
+        System.out.println("final planet");
         // 1: [Final-planet-in-meters module]: This scale/bias module scales the
         //    output value from the unscaled-final-planet subgroup so that its
         //    output value is measured in meters.
@@ -1685,7 +1678,7 @@ public class Main {
 
 
 
-
+        System.out.println("Create the elevation grid and resulting images");
 
         ////////////////////////////////////////////////////////////////////////////
         // Create the elevation grid and resulting images
@@ -1704,6 +1697,8 @@ public class Main {
         planet.SetDestNoiseMap (elevGrid);
         planet.Build ();
 
+        System.out.println("build elevation grid done");
+
         // Calculate the spatial resolution of the elevation grid, in meters.
         // Assume that the spatial resolution is the same in both the x and y
         // directions.  This is needed by the Terragen file writer.
@@ -1712,6 +1707,7 @@ public class Main {
         double metersPerDegree = (PLANET_CIRCUMFERENCE / 360.0);
         double resInMeters = (degExtent / gridExtent) * metersPerDegree;
 
+        System.out.println("terrain.ter");
         // Write the elevation grid as a Terragen terrain file (*.ter).
         if (resInMeters <= 240.0) {
             WriterTER terrainWriter = new WriterTER();
@@ -1722,23 +1718,6 @@ public class Main {
         }
 
         // Write the elevation grid as a raw file (*.raw)
-        int x, y;
-        char pLineBuffer[] = new char[GRID_WIDTH * 2];
-        std::ofstream os;
-        os.open ("terrain.raw", std::ios::out | std::ios::binary);
-        for (y = 0; y < GRID_HEIGHT; y++) {
-        float* pSource = elevGrid.GetSlabPtr (y);
-            uint8* pDest = pLineBuffer;
-            for (x = 0; x < GRID_WIDTH; x++) {
-                int16 elev = (int16)(floor (*pSource));
-                *pDest++ = (uint8)(((uint16)elev & 0xff00) >> 8);
-                *pDest++ = (uint8)(((uint16)elev & 0x00ff)     );
-                ++pSource;
-            }
-            os.write ((char*)pLineBuffer, GRID_WIDTH * 2);
-        }
-        os.close ();
-        delete[] pLineBuffer;
 
         // Calculate the sea level, in meters.
         double seaLevelInMeters = (((SEA_LEVEL + 1.0) / 2.0)
@@ -1746,21 +1725,21 @@ public class Main {
 
         // Now generate an image that is colored by elevation and has an artificial
         // light-source.
-        Image destImage;
-        RendererImage imageRenderer;
+        Image destImage = new Image();
+        RendererImage imageRenderer = new RendererImage();
         imageRenderer.SetSourceNoiseMap (elevGrid);
         imageRenderer.SetDestImage (destImage);
         imageRenderer.ClearGradient ();
-        imageRenderer.AddGradientPoint (-16384.0 + seaLevelInMeters, Color (  0,   0,   0, 255));
-        imageRenderer.AddGradientPoint (    -256 + seaLevelInMeters, Color (  6,  58, 127, 255));
-        imageRenderer.AddGradientPoint (    -1.0 + seaLevelInMeters, Color ( 14, 112, 192, 255));
-        imageRenderer.AddGradientPoint (     0.0 + seaLevelInMeters, Color ( 70, 120,  60, 255));
-        imageRenderer.AddGradientPoint (  1024.0 + seaLevelInMeters, Color (110, 140,  75, 255));
-        imageRenderer.AddGradientPoint (  2048.0 + seaLevelInMeters, Color (160, 140, 111, 255));
-        imageRenderer.AddGradientPoint (  3072.0 + seaLevelInMeters, Color (184, 163, 141, 255));
-        imageRenderer.AddGradientPoint (  4096.0 + seaLevelInMeters, Color (255, 255, 255, 255));
-        imageRenderer.AddGradientPoint (  6144.0 + seaLevelInMeters, Color (128, 255, 255, 255));
-        imageRenderer.AddGradientPoint ( 16384.0 + seaLevelInMeters, Color (  0,   0, 255, 255));
+        imageRenderer.AddGradientPoint (-16384.0 + seaLevelInMeters, new Color ((short)  0, (short)  0, (short)  0, (short)255));
+        imageRenderer.AddGradientPoint (    -256 + seaLevelInMeters, new Color ((short)  6, (short) 58, (short)127, (short)255));
+        imageRenderer.AddGradientPoint (    -1.0 + seaLevelInMeters, new Color ((short) 14, (short)112, (short)192, (short)255));
+        imageRenderer.AddGradientPoint (     0.0 + seaLevelInMeters, new Color ((short) 70, (short)120, (short) 60, (short)255));
+        imageRenderer.AddGradientPoint (  1024.0 + seaLevelInMeters, new Color ((short)110, (short)140, (short) 75, (short)255));
+        imageRenderer.AddGradientPoint (  2048.0 + seaLevelInMeters, new Color ((short)160, (short)140, (short)111, (short)255));
+        imageRenderer.AddGradientPoint (  3072.0 + seaLevelInMeters, new Color ((short)184, (short)163, (short)141, (short)255));
+        imageRenderer.AddGradientPoint (  4096.0 + seaLevelInMeters, new Color ((short)255, (short)255, (short)255, (short)255));
+        imageRenderer.AddGradientPoint (  6144.0 + seaLevelInMeters, new Color ((short)128, (short)255, (short)255, (short)255));
+        imageRenderer.AddGradientPoint ( 16384.0 + seaLevelInMeters, new Color ((short)  0, (short)  0, (short)255, (short)255));
         imageRenderer.EnableLight (true);
         imageRenderer.SetLightContrast (1.0 / resInMeters);
         imageRenderer.SetLightIntensity (2.0);
@@ -1768,8 +1747,9 @@ public class Main {
         imageRenderer.SetLightAzimuth (135.0);
         imageRenderer.Render ();
 
+        System.out.println("terrain.bmp");
         // Write the image as a Windows bitmap file (*.bmp).
-        WriterBMP bitmapWriter;
+        WriterBMP bitmapWriter = new WriterBMP();
         bitmapWriter.SetSourceImage (destImage);
         bitmapWriter.SetDestFilename ("terrain.bmp");
         bitmapWriter.WriteDestFile ();
@@ -1777,22 +1757,12 @@ public class Main {
         // Flatten the seas that are deeper than 15 meters or so.  We do not flatten
         // all the seas so that we can color the shallow areas with a different
         // color than the deeper seas.
-        const double DEEP_SEA_LEVEL = -256.0;
-        for (y = 0; y < GRID_HEIGHT; y++) {
-            float* pCur = elevGrid.GetSlabPtr (y);
-            for (x = 0; x < GRID_WIDTH; x++) {
-                if (*pCur < (SEA_LEVEL + DEEP_SEA_LEVEL)) {
-                    *pCur = (SEA_LEVEL + DEEP_SEA_LEVEL);
-                }
-                ++pCur;
-            }
-        }
-
+        final double DEEP_SEA_LEVEL = -256.0;
         // Now generate the surface map.  This is an unshaded map that is colored by
         // elevation.  Using OpenGL or another 3D API, a surface map can be used in
         // conjunction with a normal map to light the map in any direction in real
         // time.
-        RendererImage surfaceRenderer;
+        RendererImage surfaceRenderer = new RendererImage();
         surfaceRenderer.SetSourceNoiseMap (elevGrid);
         surfaceRenderer.SetDestImage (destImage);
         surfaceRenderer.ClearGradient ();
@@ -1809,6 +1779,7 @@ public class Main {
         surfaceRenderer.EnableLight (false);
         surfaceRenderer.Render ();
 
+        System.out.println("terrainsurface.bmp");
         // Write the image as a Windows bitmap file (*.bmp).
         bitmapWriter.SetSourceImage (destImage);
         bitmapWriter.SetDestFilename ("terrainsurface.bmp");
@@ -1816,7 +1787,7 @@ public class Main {
 
         // Now generate the specularity map.  This defines the "shininess" of the
         // elevation grid.  Water areas are the shiniest.
-        RendererImage specularityRenderer;
+        RendererImage specularityRenderer = new RendererImage();
         specularityRenderer.SetSourceNoiseMap (elevGrid);
         specularityRenderer.SetDestImage (destImage);
         specularityRenderer.ClearGradient ();
@@ -1827,6 +1798,7 @@ public class Main {
         specularityRenderer.EnableLight (false);
         specularityRenderer.Render ();
 
+        System.out.println("terrainspec.bmp");
         // Write the specularity map as a Windows bitmap file (*.bmp).
         bitmapWriter.SetSourceImage (destImage);
         bitmapWriter.SetDestFilename ("terrainspec.bmp");
@@ -1835,12 +1807,13 @@ public class Main {
         // Finally, render the normal map.  Using OpenGL or another 3D API, a
         // surface map can be used in conjunction with a normal map to light the map
         // in any direction in real time.
-        RendererNormalMap normalMapRenderer;
+        RendererNormalMap normalMapRenderer = new RendererNormalMap();
         normalMapRenderer.SetSourceNoiseMap (elevGrid);
         normalMapRenderer.SetDestImage (destImage);
         normalMapRenderer.SetBumpHeight (1.0 / resInMeters);
         normalMapRenderer.Render ();
 
+        System.out.println("terrainnormal.bmp");
         // Write the normal map as a Windows bitmap file (*.bmp).
         bitmapWriter.SetSourceImage (destImage);
         bitmapWriter.SetDestFilename ("terrainnormal.bmp");
