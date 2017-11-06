@@ -2,20 +2,19 @@ package net.xbwee.libnoise.example;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import net.xbwee.libnoise.example.worm.Worm;
+import net.xbwee.libnoise.example.worm.WormsManager;
 
 
 public class WormsApp extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture texture;
 	Camera camera;
-	Worm worm;
+
 
 	@Override
 	public void create () {
@@ -23,7 +22,6 @@ public class WormsApp extends ApplicationAdapter {
 		texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		worm = new Worm();
 	}
 
 	@Override
@@ -47,13 +45,15 @@ public class WormsApp extends ApplicationAdapter {
 
 		texture.bind();
 
-		worm.Draw(camera);
-		worm.Update();
+		WormsManager.newInstance().drawWorms(camera);
+		WormsManager.newInstance().updateWorms();
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
+		texture.dispose();
+
 	}
 
 

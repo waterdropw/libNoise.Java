@@ -12,6 +12,25 @@ import net.xbwee.libnoise.noise.NoiseQuality;
 
 public class Worm {
 
+    // Default worm lateral speed.
+    static final double WORM_LATERAL_SPEED = (2.0 / 8192.0);
+
+    // Default length of a worm segment, in screen units.
+    static final double WORM_SEGMENT_LENGTH = (1.0 / 64.0);
+
+    // Default segment count for each worm.
+    static final int WORM_SEGMENT_COUNT = 112;
+
+    // Default worm speed.
+    static final double WORM_SPEED = (3.0 / 2048.0);
+
+    // Default worm thickness.
+    static final double WORM_THICKNESS = (4.0 / 256.0);
+
+    // Default "twistiness" of the worms.
+    static final double WORM_TWISTINESS = (4.0 / 256.0);
+
+
     ImmediateModeRenderer20 gl20 = new ImmediateModeRenderer20(false, true, 1);
 
 
@@ -36,18 +55,12 @@ public class Worm {
         // Set the worm parameters with their default values.
         m_headScreenPos.x = 0.0f;
         m_headScreenPos.y = 0.0f;
-        m_lateralSpeed = Constant.WORM_LATERAL_SPEED;
-        m_segmentCount = Constant.WORM_SEGMENT_COUNT;
-        m_segmentLength = Constant.WORM_SEGMENT_LENGTH;
-        m_speed = Constant.WORM_SPEED;
-        m_thickness = Constant.WORM_THICKNESS;
-        m_twistiness = Constant.WORM_TWISTINESS;
-
-        Vector2 pos = new Vector2();
-        pos.x = (float)Noise.ValueNoise3D (1000, 2000, 3000);
-        pos.y = (float)Noise.ValueNoise3D (1001, 2001, 3001);
-        SetSeed (0);
-        SetHeadScreenPos (pos);
+        m_lateralSpeed = WormsManager.WORM_LATERAL_SPEED;
+        m_segmentCount = WormsManager.WORM_SEGMENT_COUNT;
+        m_segmentLength = WormsManager.WORM_SEGMENT_LENGTH;
+        m_speed = WormsManager.WORM_SPEED;
+        m_thickness = WormsManager.WORM_THICKNESS;
+        m_twistiness = WormsManager.WORM_TWISTINESS;
 
     }
 
@@ -185,9 +198,10 @@ public class Worm {
             // Draw the segment using OpenGL.
             gl20.texCoord(curSegment, 0.0f);
             gl20.vertex(x0, y0, 0f);
+            gl20.color(255, 0, 0, 255);
             gl20.texCoord(curSegment, 1.0f);
             gl20.vertex(x1, y1, 0f);
-
+            gl20.color(0, 255, 0, 255);
             // Prepare the next segment.
             ++curSegment;
             curSegmentScreenPos.x += offsetPos.x;
@@ -228,22 +242,22 @@ public class Worm {
     double m_twistiness;
 
     // Default worm lateral speed.
-    double g_wormLateralSpeed = Constant.WORM_LATERAL_SPEED;
+    double g_wormLateralSpeed = WormsManager.WORM_LATERAL_SPEED;
 
     // Default length of a worm segment, in screen units.
-    double g_wormSegmentLength = Constant.WORM_SEGMENT_LENGTH;
+    double g_wormSegmentLength = WormsManager.WORM_SEGMENT_LENGTH;
 
     // Default segment count for each worm.
-    int g_wormSegmentCount = Constant.WORM_SEGMENT_COUNT;
+    int g_wormSegmentCount = WormsManager.WORM_SEGMENT_COUNT;
 
     // Default worm speed.
-    double g_wormSpeed = Constant.WORM_SPEED;
+    double g_wormSpeed = WormsManager.WORM_SPEED;
 
     // Default worm thickness.
-    double g_wormThickness = Constant.WORM_THICKNESS;
+    double g_wormThickness = WormsManager.WORM_THICKNESS;
 
     // Default "twistiness" of the worms.
-    double g_wormTwistiness = Constant.WORM_TWISTINESS;
+    double g_wormTwistiness = WormsManager.WORM_TWISTINESS;
 
     // Number of worms rendered on the screen.
     int g_curWormCount = 32;
