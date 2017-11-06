@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import net.xbwee.libnoise.example.Worms;
+import net.xbwee.libnoise.example.WormsApp;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override
