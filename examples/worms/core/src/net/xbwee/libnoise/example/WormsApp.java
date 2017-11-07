@@ -6,22 +6,21 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import net.xbwee.libnoise.example.worm.WormsManager;
 
 
 public class WormsApp extends ApplicationAdapter {
-	SpriteBatch batch;
 	Texture texture;
 	Camera camera;
 
 
 	@Override
 	public void create () {
-		texture = new Texture("assets/worm.bmp");
-		texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-		batch = new SpriteBatch();
+		texture = new Texture(Gdx.files.internal("assets/worm.bmp"), true);
+
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+		Gdx.input.setInputProcessor(new InputHandler());
 	}
 
 	@Override
@@ -29,13 +28,13 @@ public class WormsApp extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0.1f, 0.15f, 0.3f, 1.0f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		camera.update();
-		batch.setProjectionMatrix(camera.combined);
+		camera.update(false);
 
 		Gdx.gl.glDisable (GL20.GL_DEPTH_TEST);
 		Gdx.gl.glDisable (GL20.GL_CULL_FACE);
 		Gdx.gl.glEnable(GL20.GL_BLEND);
 		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+
 		Gdx.gl.glEnable (GL20.GL_TEXTURE_2D);
 		Gdx.gl.glTexParameteri (GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_WRAP_S, GL20.GL_REPEAT);
 		Gdx.gl.glTexParameteri (GL20.GL_TEXTURE_2D, GL20.GL_TEXTURE_WRAP_T, GL20.GL_CLAMP_TO_EDGE);
@@ -47,13 +46,13 @@ public class WormsApp extends ApplicationAdapter {
 
 		WormsManager.newInstance().drawWorms(camera);
 		WormsManager.newInstance().updateWorms();
+
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
-		texture.dispose();
-
+		if (texture != null)
+			texture.dispose();
 	}
 
 

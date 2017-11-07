@@ -31,10 +31,15 @@ public class Worm {
     static final double WORM_TWISTINESS = (4.0 / 256.0);
 
 
-    ImmediateModeRenderer20 gl20 = new ImmediateModeRenderer20(false, true, 1);
+    ImmediateModeRenderer20 gl20;
 
 
     public Worm() {
+        gl20 = new ImmediateModeRenderer20(false, true, 2);
+        m_headNoisePos = new Vector3();
+        m_headScreenPos = new Vector2();
+        m_noise = new Perlin();
+
         // The coordinates of the input value for the head segment must not
         // start at an integer boundary (for example, (0, 0, 0)).  At integer
         // boundaries, the coherent-noise values are always zero (blame gradient
@@ -90,7 +95,7 @@ public class Worm {
 
     // Sets the seed of the Perlin-noise module.
     void SetSeed(int seed) {
-        //m_noise.SetSeed (seed);
+        m_noise.SetSeed (seed);
     }
 
     // Sets the number of segments that make up the worm.
@@ -196,12 +201,10 @@ public class Worm {
             float y1 = curSegmentScreenPos.y - curNormalPos.y;
 
             // Draw the segment using OpenGL.
-            gl20.texCoord(curSegment, 0.0f);
+            gl20.texCoord(curSegment, 0f);
             gl20.vertex(x0, y0, 0f);
-            gl20.color(255, 0, 0, 255);
-            gl20.texCoord(curSegment, 1.0f);
+            gl20.texCoord(curSegment, 1f);
             gl20.vertex(x1, y1, 0f);
-            gl20.color(0, 255, 0, 255);
             // Prepare the next segment.
             ++curSegment;
             curSegmentScreenPos.x += offsetPos.x;
@@ -215,16 +218,16 @@ public class Worm {
     // Coordinates of the input value that generates the Perlin noise in
     // "noise space".  This is used to specify the angles of the worm's
     // segments.
-    Vector3 m_headNoisePos = new Vector3();
+    Vector3 m_headNoisePos;
 
     // Position of the worm's head segment, in screen space.
-    Vector2 m_headScreenPos = new Vector2();
+    Vector2 m_headScreenPos;
 
     // Worm's lateral speed.
     double m_lateralSpeed;
 
     // Noise module used to draw the worm.
-    Perlin m_noise = new Perlin();
+    Perlin m_noise;
 
     // Number of segments that make up the worm.
     int m_segmentCount;
@@ -241,24 +244,4 @@ public class Worm {
     // "Twistiness" of the worm.
     double m_twistiness;
 
-    // Default worm lateral speed.
-    double g_wormLateralSpeed = WormsManager.WORM_LATERAL_SPEED;
-
-    // Default length of a worm segment, in screen units.
-    double g_wormSegmentLength = WormsManager.WORM_SEGMENT_LENGTH;
-
-    // Default segment count for each worm.
-    int g_wormSegmentCount = WormsManager.WORM_SEGMENT_COUNT;
-
-    // Default worm speed.
-    double g_wormSpeed = WormsManager.WORM_SPEED;
-
-    // Default worm thickness.
-    double g_wormThickness = WormsManager.WORM_THICKNESS;
-
-    // Default "twistiness" of the worms.
-    double g_wormTwistiness = WormsManager.WORM_TWISTINESS;
-
-    // Number of worms rendered on the screen.
-    int g_curWormCount = 32;
 }
